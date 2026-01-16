@@ -1,0 +1,339 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Resume</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f4f7f6;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px 0;
+        }
+
+        .resume-container {
+            background: #fff;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .resume-header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .resume-body {
+            padding: 40px;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 25px;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .company-name {
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+
+        .duration {
+            font-style: italic;
+            color: #95a5a6;
+            float: right;
+        }
+
+        .skills-list span {
+            display: inline-block;
+            background: #e1f5fe;
+            color: #0277bd;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-download {
+            border-radius: 50px;
+            padding: 12px 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="resume-container">
+            Header
+            <div class="resume-header">
+                <h1 class="display-4" th:text="${resume.fullName}">John Doe</h1>
+                <p class="lead">
+                    <i class="fas fa-envelope"></i> <span th:text="${resume.email}">email@example.com</span> |
+                    <i class="fas fa-phone"></i> <span th:text="${resume.phone}">123-456-7890</span>
+                </p>
+            </div>
+
+            Body
+            <div class="resume-body">
+                Summary
+                <h3 class="section-title">Professional Summary</h3>
+                <p th:text="${resume.summary}">Passionate professional...</p>
+
+                Skills
+                <h3 class="section-title">Skills</h3>
+                <div class="skills-list">
+                    <span th:each="skill : ${resume.skills}" th:text="${skill}">Java</span>
+                </div>
+
+                Experience
+                <h3 class="section-title">Experience</h3>
+                <div th:each="exp : ${resume.experience}" class="experience-item">
+                    <div>
+                        <span class="job-title" th:text="${exp.title}">Software Engineer</span>
+                        <span class="duration" th:text="${exp.duration}">2020 - Present</span>
+                    </div>
+                    <div class="company-name" th:text="${exp.company}">Tech Corp</div>
+                    <p class="mt-2" th:text="${exp.description}">Did great things.</p>
+                </div>
+
+                Education
+                <h3 class="section-title">Education</h3>
+                <div th:each="edu : ${resume.education}" class="education-item">
+                    <div class="job-title" th:text="${edu.degree}">B.Sc. CS</div>
+                    <div class="company-name">
+                        <span th:text="${edu.school}">University</span>
+                        <span class="duration" th:text="${edu.year}">2019</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="/download/pdf" class="btn btn-danger btn-download"><i class="fas fa-file-pdf"></i> Download PDF</a>
+        <a href="/download/word" class="btn btn-primary btn-download"><i class="fas fa-file-word"></i> Download Word</a>
+        <a href="/" class="btn btn-secondary btn-download"><i class="fas fa-arrow-left"></i> Back</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Resume</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f4f7f6;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px 0;
+        }
+
+        .resume-container {
+            background: #fff;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .resume-header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .resume-body {
+            padding: 40px;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 25px;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .company-name {
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+
+        .duration {
+            font-style: italic;
+            color: #95a5a6;
+            float: right;
+        }
+
+        .skills-list span {
+            display: inline-block;
+            background: #e1f5fe;
+            color: #0277bd;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-download {
+            border-radius: 50px;
+            padding: 12px 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="resume-container">
+
+        <!-- Header -->
+        <div class="resume-header">
+            <h1 class="display-4" th:text="${resume.fullName}">John Doe</h1>
+            <p class="lead">
+                <i class="fas fa-envelope"></i>
+                <span th:text="${resume.email}">email@example.com</span> |
+                <i class="fas fa-phone"></i>
+                <span th:text="${resume.phone}">123-456-7890</span>
+            </p>
+        </div>
+
+        <!-- Body -->
+        <div class="resume-body">
+
+            <!-- Summary -->
+            <h3 class="section-title">Professional Summary</h3>
+            <p th:text="${resume.summary}">Professional summary</p>
+
+            <!-- Skills -->
+            <h3 class="section-title">Skills</h3>
+            <div class="skills-list">
+                <span th:each="skill : ${resume.skills}" th:text="${skill}">Java</span>
+            </div>
+
+            <!-- Experience -->
+            <h3 class="section-title">Experience</h3>
+            <div th:each="exp : ${resume.experiences}" class="experience-item">
+                <div>
+                    <span class="job-title" th:text="${exp.position}">Software Engineer</span>
+                    <span class="duration" th:text="${exp.duration}">2020 - Present</span>
+                </div>
+                <div class="company-name" th:text="${exp.company}">Tech Corp</div>
+                <p class="mt-2" th:text="${exp.description}">Did great things</p>
+            </div>
+
+            <!-- Education -->
+            <h3 class="section-title">Education</h3>
+            <div th:each="edu : ${resume.educations}" class="education-item">
+                <div class="job-title" th:text="${edu.degree}">B.Sc. CS</div>
+                <div class="company-name">
+                    <span th:text="${edu.institution}">University</span>
+                    <span class="duration" th:text="${edu.year}">2019</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Actions -->
+<div class="actions">
+    <a href="/download/pdf" class="btn btn-danger btn-download">
+        <i class="fas fa-file-pdf"></i> Download PDF
+    </a>
+    <a href="/download/word" class="btn btn-primary btn-download">
+        <i class="fas fa-file-word"></i> Download Word
+    </a>
+    <a href="/" class="btn btn-secondary btn-download">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

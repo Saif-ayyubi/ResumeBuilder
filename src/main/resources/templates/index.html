@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        textarea {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 1.1rem;
+            resize: none;
+        }
+
+        textarea:focus {
+            background: #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            outline: none;
+        }
+
+        .btn-generate {
+            background: #ff00cc;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #333399, #ff00cc);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #333399, #ff00cc);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: transform 0.2s;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .btn-generate:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .lead {
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container text-center">
+        <h1>🚀 AI Resume Generator</h1>
+        <p class="lead mb-4">Transform your thoughts into a professional resume in seconds.</p>
+
+        <form action="/generate" method="post">
+            <div class="mb-3">
+                <textarea name="prompt" class="form-control" rows="6"
+                    placeholder="Describe yourself... e.g., 'My name is Sarah, I am a Marketing Manager with 5 years experience in SEO and content strategy...'"></textarea>
+            </div>
+            <button type="submit" class="btn btn-generate">✨ Generate Resume</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

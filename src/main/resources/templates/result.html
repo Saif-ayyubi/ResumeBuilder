@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .resume-paper {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto;
+            background: white;
+            color: black;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 min-h-screen py-10">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center mb-8 max-w-4xl mx-auto">
+            <h1 class="text-2xl font-bold text-white">Resume Preview</h1>
+            <div class="space-x-4">
+                <a href="/download/pdf" class="inline-flex items-center px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors font-medium">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Download PDF
+                </a>
+                <a href="/download/word" class="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Download Word
+                </a>
+                <a href="/" class="inline-flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors font-medium">
+                    New
+                </a>
+            </div>
+        </div>
+
+        <div class="resume-paper rounded-sm">
+            <!-- Header -->
+            <div class="border-b-2 border-gray-800 pb-4 mb-4">
+                <h1 class="text-3xl font-bold text-gray-900" th:text="${resume.fullName}">John Doe</h1>
+                <div class="mt-2 text-gray-600 text-sm">
+                    <span th:text="${resume.email}">email@example.com</span> | 
+                    <span th:text="${resume.phone}">(123) 456-7890</span>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="mb-6">
+                <h2 class="text-lg font-bold text-gray-800 uppercase tracking-wider mb-2 border-b border-gray-300 pb-1">Summary</h2>
+                <p class="text-gray-700 leading-relaxed" th:text="${resume.summary}">Professional summary goes here...</p>
+            </div>
+
+            <!-- Skills -->
+            <div class="mb-6">
+                <h2 class="text-lg font-bold text-gray-800 uppercase tracking-wider mb-2 border-b border-gray-300 pb-1">Skills</h2>
+                <div class="flex flex-wrap gap-2">
+                    <span th:each="skill : ${resume.skills}" th:text="${skill}" class="bg-gray-100 px-2 py-1 rounded text-sm text-gray-700 border border-gray-200">Skill</span>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="mb-6">
+                <h2 class="text-lg font-bold text-gray-800 uppercase tracking-wider mb-4 border-b border-gray-300 pb-1">Experience</h2>
+                <div class="space-y-4">
+                    <div th:each="exp : ${resume.experiences}">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="font-bold text-gray-900 text-md" th:text="${exp.position}">Position</h3>
+                            <span class="text-sm text-gray-500 italic" th:text="${exp.duration}">Date</span>
+                        </div>
+                        <h4 class="text-gray-700 font-semibold text-sm mb-1" th:text="${exp.company}">Company</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed" th:text="${exp.description}">Description...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="mb-6">
+                <h2 class="text-lg font-bold text-gray-800 uppercase tracking-wider mb-4 border-b border-gray-300 pb-1">Education</h2>
+                <div class="space-y-2">
+                    <div th:each="edu : ${resume.educations}">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="font-bold text-gray-900" th:text="${edu.institution}">University</h3>
+                            <span class="text-sm text-gray-500 italic" th:text="${edu.year}">Year</span>
+                        </div>
+                        <p class="text-gray-700 text-sm" th:text="${edu.degree}">Degree</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
