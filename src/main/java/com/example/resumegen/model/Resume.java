@@ -8,6 +8,8 @@ import java.util.List;
 @Data
 public class Resume {
 
+
+    //By Saif 
     private String fullName;
     private String email;
     private String phone;
